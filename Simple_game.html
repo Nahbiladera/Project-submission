@@ -1,0 +1,43 @@
+<!-- This game is a guessing game, where the computer
+ chooses a number between 1 and 10, the player enters a number
+ the game tells the player whether the guess is too high
+ low, or correct, the player wins by guessing the correct number -->
+ <!DOCTYPE html>
+<html>
+<head>
+    <title>Guess the Number Game</title>
+</head>
+<body>
+
+    <h1>Guess the Number!</h1>
+    <p>Guess a number between 1 and 10</p>
+
+    <input type="number" id="guess">
+
+    <button onclick="checkGuess()">Guess</button>
+
+    <p id="result"></p>
+
+    <script>
+        let secretNumber = Math.floor(Math.random() * 10) + 1;
+
+        function checkGuess() {
+            let guess = Number(document.getElementById("guess").value);
+
+            if (guess === secretNumber) {
+                document.getElementById("result").innerHTML =
+                    "Congratulations! You won!";
+            }
+            else if (guess < secretNumber) {
+                document.getElementById("result").innerHTML =
+                    "Too low! Try again.";
+            }
+            else {
+                document.getElementById("result").innerHTML =
+                    "Too high! Try again.";
+            }
+        }
+    </script>
+
+</body>
+</html>

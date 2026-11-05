@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mass Converter</title>
+</head>
+<body>
+
+<h2>Mass Converter</h2>
+
+<input type="number" id="mass" placeholder="Enter mass">
+
+<select id="unit">
+    <option value="kg">Kilograms to Grams</option>
+    <option value="g">Grams to Kilograms</option>
+</select>
+
+<button onclick="convert()">Convert</button>
+
+<p id="result"></p>
+
+<script>
+function convert() {
+
+    let mass = document.getElementById("mass").value;
+    let unit = document.getElementById("unit").value;
+    let answer;
+
+    if (mass === "") {
+        document.getElementById("result").innerHTML =
+            "Please enter a mass";
+        return;
+    }
+
+    if (unit == "kg") {
+        answer = mass * 1000;
+        document.getElementById("result").innerHTML =
+            answer + " Grams";
+    }
+    else {
+        answer = mass / 1000;
+        document.getElementById("result").innerHTML =
+            answer + " Kilograms";
+    }
+}
+</script>
+
+</body>
+</html>
